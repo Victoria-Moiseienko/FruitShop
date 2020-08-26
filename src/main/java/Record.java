@@ -1,16 +1,15 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Record {
     private RecordType type;
-    private String product;
+    private String productName;
     private int count;
     private LocalDate date;
 
     public Record(String inputType, String inputProduct, String inputCount, String inputDate) {
         setType(inputType);
-        product = inputProduct;
+        productName = inputProduct;
         setCount(Integer.parseInt(inputCount));
         setDate(LocalDate.parse(inputDate, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
     }
@@ -21,17 +20,23 @@ public class Record {
 
     public void setType(String stringType) {
         switch (stringType) {
-            case "s" : type = RecordType.s; break;
-            case "b" : type = RecordType.b; break;
-            case "r" : type = RecordType.r; break;
+            case "s":
+                type = RecordType.s;
+                break;
+            case "b":
+                type = RecordType.b;
+                break;
+            case "r":
+                type = RecordType.r;
+                break;
             default: {
                 throw new RuntimeException("Unsupported record type: [" + stringType + "]");
             }
         }
     }
 
-    public String getProduct() {
-        return product;
+    public String getProductName() {
+        return productName;
     }
 
     public int getCount() {
@@ -48,15 +53,5 @@ public class Record {
 
     public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    @Override
-    public String toString() {
-        return "Record{" +
-                "type=" + type +
-                ", product='" + product + '\'' +
-                ", count=" + count +
-                ", date=" + date +
-                '}';
     }
 }

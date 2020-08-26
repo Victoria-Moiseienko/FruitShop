@@ -8,10 +8,9 @@ public class RecordParserService {
         List<Record> recordList = new ArrayList<>();
         for (String string : stringList) {
             string = string.trim();
-            if(string.trim().matches("[sbr],[a-z]{3,},\\d+,\\d{4}-\\d{2}-\\d{2}")) {
-                recordList.add(parseSingleRecord(string.trim()));
-            }
-            else if(!string.equals("type,fruit,quantity,date"))
+            if (string.matches("[sbr],[a-z]{3,},\\d+," + DATE_REGEXP)) {
+                recordList.add(parseSingleRecord(string));
+            } else if (!string.equals("type,fruit,quantity,date"))
                 throw new RuntimeException("Unsupported line [" + string + "]");
         }
         return recordList;
