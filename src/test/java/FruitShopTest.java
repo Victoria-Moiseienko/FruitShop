@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FruitShopTest {
-    public static final DateTimeFormatter YYYY_MM_DD = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public static final DateTimeFormatter YYYY_MM_DD = DateTimeFormatter.ISO_LOCAL_DATE;
 
     Record testRecordIncome = new Record("s", "pineapple", "10", "2020-08-26");
     Record testRecordIncome2 = new Record("r", "pineapple", "100", "2020-08-26");

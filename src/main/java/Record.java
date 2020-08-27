@@ -11,7 +11,7 @@ public class Record {
         setType(inputType);
         productName = inputProduct;
         setCount(Integer.parseInt(inputCount));
-        setDate(LocalDate.parse(inputDate, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        setDate(LocalDate.parse(inputDate, DateTimeFormatter.ISO_LOCAL_DATE));
     }
 
     public RecordType getType() {
