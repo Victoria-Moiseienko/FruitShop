@@ -15,10 +15,6 @@ public class Product {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
     public int getCount() {
         return count;
     }
@@ -29,18 +25,5 @@ public class Product {
 
     public LocalDate getExpirationDate() {
         return expirationDate;
-    }
-
-    public void setExpirationDate(LocalDate expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productName='" + productName + '\'' +
-                ", count=" + count +
-                ", expirationDate=" + expirationDate +
-                '}';
     }
 }

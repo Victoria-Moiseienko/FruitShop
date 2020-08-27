@@ -7,22 +7,15 @@ public class FruitShopMain {
 
         RecordParserService recordParserService = new RecordParserService();
         List<Record> recordList = recordParserService.parseRecords(stringList);
-        for (Record record : recordList) {
-            System.out.println(record);
-        }
 
+        Storage storage = new Storage();
         ProductCalculatorService productCalculatorService = new ProductCalculatorService();
-        List<Product> balanceOfProducts = productCalculatorService.calculateBalance(recordList);
-        System.out.println("==================================================");
-        for (Product product : balanceOfProducts) {
-            System.out.println(product);
-        }
+        productCalculatorService.calculateBalance(recordList, storage);
 
         ReportMakerService reportMakerService = new ReportMakerService();
-        String report = reportMakerService.makeReport(balanceOfProducts);
+        String report = reportMakerService.makeReport(storage);
 
         FileWriterService fileWriterService = new FileWriterService();
-        fileWriterService.writeLinesToFile("report", report);
-
+        fileWriterService.writeLinesToFile("report.txt", report);
     }
 }

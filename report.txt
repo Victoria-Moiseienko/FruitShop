@@ -1,1 +1,1 @@
-fruit,quantitybanana,97apple,250
+Text for FileWriterService test
